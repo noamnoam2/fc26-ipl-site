@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>FC26 IPL – הורדה לאנדרואיד (APK)</title>
+  <meta name="description" content="FC26 IPL – דראפט סימולייטור בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית (כרגע ללא חבילות). דף הורדה נקי, אמין ומותאם מובייל." />
+  <link rel="icon" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#0a1224;--muted:#58607a;--ring:#e7edff;--bg:#fbfcff;--card:#ffffff;--accent:#1a73e8;--ok:#1fb36b;--shadow:0 14px 34px rgba(17,24,39,.08)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Rubik',system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+
+    /* Background */
+    .bg{position:fixed;inset:0;z-index:-2;background:#fff url('images/back.png') center/cover no-repeat fixed;opacity:.1}
+    .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,255,255,.99))}
+
+    /* Container */
+    .container{max-width:1120px;margin:0 auto;padding:clamp(8px,3vw,20px)}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:18px;box-shadow:var(--shadow)}
+
+    /* Header – mobile-first */
+    .header{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:clamp(12px,3.2vw,18px)}
+    @media(min-width:840px){.header{grid-template-columns:auto 1fr auto}}
+    .app-icon{width:84px;height:84px;border-radius:20px;object-fit:cover;border:1px solid var(--ring)}
+    .title{display:grid;gap:6px}
+    h1{margin:0;font-size:clamp(22px,5.6vw,32px)}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:#2b3b59}
+    .chip{display:inline-flex;gap:6px;align-items:center;background:#f2f6ff;border:1px solid var(--ring);border-radius:999px;padding:8px 12px;font-size:14px}
+
+    /* Buttons – larger tap targets */
+    .btn{appearance:none;border:0;border-radius:999px;padding:clamp(14px,4vw,16px) clamp(18px,5vw,22px);font-weight:800;cursor:pointer;transition:transform .12s, box-shadow .12s;display:inline-flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap}
+    .btn-primary{background:linear-gradient(180deg,#3b82f6,var(--accent));color:#fff;box-shadow:0 12px 26px rgba(26,115,232,.30)}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(26,115,232,.38)}
+    .btn-ghost{background:#fff;border:1px solid var(--ring);color:#1f2a44}
+
+    /* Tabs */
+    .tabs{margin-top:12px}
+    .tab-head{display:flex;gap:8px;overflow:auto;padding:8px 12px}
+    .tab-btn{background:#fff;border:1px solid var(--ring);padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:700;color:#1f2a44;white-space:nowrap}
+    .tab-btn[aria-selected="true"]{background:#eaf2ff;border-color:#cfe0ff;color:#0b1220}
+    .tab-panels{padding:0 12px 12px}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
+
+    .section{background:#fff;border:1px solid var(--ring);border-radius:14px;padding:clamp(12px,3vw,16px)}
+    .section h3{margin:0 0 8px;font-size:18px}
+    .p-muted{color:var(--muted);margin:0;line-height:1.75}
+
+    /* Screenshots – great on mobile */
+    .shots{display:flex;gap:12px;overflow:auto;padding:8px 4px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .shot{flex:0 0 clamp(62vw, 240px, 300px);margin:0;scroll-snap-align:center}
+    .shot img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--ring);box-shadow:0 8px 16px rgba(17,24,39,.08)}
+
+    /* Info list */
+    .facts{display:grid;gap:8px}
+    .fact{display:flex;gap:8px;align-items:center;color:#2b3b59}
+
+    /* Sticky install bar */
+    .sticky{position:sticky;bottom:0;z-index:7;padding:10px}
+    .sticky .bar{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#ffffff;border:1px solid var(--ring);border-radius:16px;padding:10px 12px;box-shadow:var(--shadow)}
+
+    /* Lightbox */
+    dialog#lightbox{border:0;padding:0;background:rgba(0,0,0,.65)}
+    dialog#lightbox::backdrop{background:rgba(0,0,0,.55)}
+
+    /* Anim */
+    .fade{opacity:0;transform:translateY(6px);animation:fade .45s ease forwards}
+    .fade.d1{animation-delay:.08s}.fade.d2{animation-delay:.16s}
+    @keyframes fade{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="card header fade">
+      <img src="images/logo.png" alt="FC26 IPL" class="app-icon" onerror="this.style.background='#eaf2ff'">
+      <div class="title">
+        <h1>FC26 IPL</h1>
+        <div style="font-size:13px;color:#7a86a8">מבית <b>NN Games</b></div>
+        <div class="meta">
+          <span class="chip">דראפט סימולייטור (ללא חבילות בשלב זה)</span>
+          <span class="chip">קלפים: ליגת העל הישראלית</span>
+          <span class="chip">Android · APK</span>
+          <span class="chip">50K+ הורדות משתמשים</span>
+        </div>
+      </div>
+      <div class="install" style="grid-column:1 / -1;justify-content:space-between;gap:8px">
+        <a id="installTop" class="btn btn-primary" href="#" style="flex:1;text-align:center" rel="nofollow">התקנה • הורד כעת</a>
+        <button id="copyBtn" class="btn btn-ghost" type="button" style="flex:0 0 auto">העתק קישור</button>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <section class="card tabs fade d1" role="tablist" aria-label="מידע על האפליקציה">
+      <div class="tab-head">
+        <button class="tab-btn" role="tab" aria-selected="true" data-tab="about">על המשחק</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="gallery">גלריה</button>
+      </div>
+      <div class="tab-panels">
+        <!-- ABOUT -->
+        <div id="panel-about" role="tabpanel" class="grid" aria-labelledby="about">
+          <div class="section">
+            <h3>תיאור</h3>
+            <p class="p-muted">
+              FC26 IPL הוא <b>דראפט סימולייטור</b> בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית –
+              כרגע <b>ללא חבילות</b>. בנו הרכב חכם לפי עמדות וכימיה והתחרו על ניקוד מקסימלי.
+            </p>
+            <div class="divider" style="height:1px;background:#eef2ff;margin:12px 0"></div>
+            <div class="shots" aria-label="צילומי מסך">
+              <figure class="shot"><img src="images/image1.png" alt="מסך דראפט – FC26 IPL" loading="lazy" decoding="async"></figure>
+              <figure class="shot"><img src="images/image2.png" alt="בניית הרכב – FC26 IPL" loading="lazy" decoding="async"></figure>
+              <figure class="shot"><img src="images/image3.png" alt="כרטיסי ליגת העל – FC26 IPL" loading="lazy" decoding="async"></figure>
+              <figure class="shot"><img src="images/image4.png" alt="תפריט משחק – FC26 IPL" loading="lazy" decoding="async"></figure>
+            </div>
+          </div>
+          <div class="section">
+            <h3>מידע מהיר</h3>
+            <div class="facts">
+              <div class="fact">📦 גודל קובץ: <span id="apkSize">537 מ״ב</span></div>
+              <div class="fact">🔒 חתימת SHA-256: <code id="sha256" style="font-family:ui-monospace">—</code></div>
+              <div class="fact">🖥️ פלטפורמה מזוהה: <b id="env">—</b></div>
+            </div>
+            <div class="divider" style="height:1px;background:#eef2ff;margin:12px 0"></div>
+            <h3>איך מתקינים?</h3>
+            <ol class="p-muted" style="margin:0 0 0 1em;line-height:1.8">
+              <li>לחץ על <b>התקנה • הורד כעת</b> ואשר את ההורדה בדפדפן.</li>
+              <li>פתח את <b>ההתראות</b> או <b>הקבצים שהורדו</b> והקש על קובץ ה-APK.</li>
+              <li>אם נדרש – אפשר <b>התקנה ממקורות לא מוכרים</b> בהגדרות.</li>
+              <li>בסיום – הקש <b>פתח</b> ושחק.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- GALLERY -->
+        <div id="panel-gallery" role="tabpanel" hidden aria-labelledby="gallery">
+          <div class="section">
+            <h3>תמונות מהמשחק</h3>
+            <div class="shots" aria-label="צילומי מסך">
+              <figure class="shot"><img src="images/image1.png" alt="מסך משחק – FC26 IPL" loading="lazy" decoding="async" width="240" height="427"></figure>
+              <figure class="shot"><img src="images/image2.png" alt="בניית הרכב – FC26 IPL" loading="lazy" decoding="async" width="240" height="427"></figure>
+              <figure class="shot"><img src="images/image3.png" alt="כרטיסי ליגת העל – FC26 IPL" loading="lazy" decoding="async" width="240" height="427"></figure>
+              <figure class="shot"><img src="images/image4.png" alt="תפריט/מסך נוסף – FC26 IPL" loading="lazy" decoding="async" width="240" height="427"></figure>
+            </div>
+            <p class="p-muted" style="margin-top:6px">לחיצה על תמונה תפתח אותה בגודל מלא.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky install bar for mobile -->
+    <div class="sticky fade d2">
+      <div class="bar">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <img src="images/logo.png" alt="" width="28" height="28" style="border-radius:7px;border:1px solid var(--ring)">
+          <strong>FC26 IPL</strong>
+          <span class="chip">50K+ הורדות משתמשים</span>
+        </div>
+        <a id="installSticky" class="btn btn-primary" href="#" rel="nofollow">התקן עכשיו</a>
+      </div>
+    </div>
+
+    <!-- NN footer -->
+    <div style="display:grid;place-items:center;gap:6px;margin:18px 0">
+      <img src="images/NN.png" alt="NN Games" width="140" height="auto">
+      <small style="color:#7a86a8">© NN Games</small>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox"><img id="lightbox-img" alt="תצוגה" style="max-width:95vw;max-height:85vh;border-radius:14px"></dialog>
+
+  <script>
+    // ===== APK path (GitHub Releases) =====
+    const APK_FILE = 'https://github.com/noamnoam2/fc26-ipl-site/releases/download/v1/app-release.apk';
+
+    // Wire install buttons
+    const installTop = document.getElementById('installTop');
+    const installSticky = document.getElementById('installSticky');
+    [installTop, installSticky].forEach(btn=>{
+      if(!btn) return;
+      btn.href = APK_FILE;
+      btn.setAttribute('download','FC26-IPL.apk');
+      btn.setAttribute('target','_self');
+    });
+
+    // Programmatic fallback to enforce download
+    function forceDownload(){
+      try{
+        const a = document.createElement('a');
+        a.href = APK_FILE; a.download='FC26-IPL.apk'; a.target='_self';
+        document.body.appendChild(a); a.click(); a.remove();
+      }catch{ location.href = APK_FILE; }
+    }
+    [installTop, installSticky].forEach(btn=>btn && btn.addEventListener('click',(e)=>{
+      const isIOS = /(iphone|ipad|ipod)/i.test(navigator.userAgent);
+      if(isIOS){ e.preventDefault(); alert('התקנת APK אינה נתמכת ב-iOS'); return; }
+      setTimeout(forceDownload,0);
+    }));
+
+    // Copy link uses the full external URL
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn?.addEventListener('click', async ()=>{
+      const url = APK_FILE; // לא בונים מ-origin
+      try{ await navigator.clipboard.writeText(url); copyBtn.textContent='הועתק ✔'; setTimeout(()=>copyBtn.textContent='העתק קישור',1200); }
+      catch{ alert(url); }
+    });
+
+    // Platform label + file size (no double download)
+    const envEl = document.getElementById('env'); if(envEl){ envEl.textContent = /android/i.test(navigator.userAgent)? 'Android' : /iphone|ipad|ipod/i.test(navigator.userAgent)? 'iOS' : 'Desktop'; }
+    const sizeEl = document.getElementById('apkSize'); if(sizeEl){ sizeEl.textContent = '537 מ״ב'; }
+    const shaEl = document.getElementById('sha256'); if(shaEl){ shaEl.textContent = '—'; }
+
+    // Tabs logic (about + gallery)
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const panels = { about: document.getElementById('panel-about'), gallery: document.getElementById('panel-gallery') };
+    tabButtons.forEach(btn=>btn.addEventListener('click',()=>{
+      const key = btn.dataset.tab;
+      tabButtons.forEach(b=>b.setAttribute('aria-selected', b===btn ? 'true' : 'false'));
+      Object.entries(panels).forEach(([k,p])=>{ if(p) p.hidden = k!==key; });
+    }));
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.shots img').forEach(img=>{
+      img.style.cursor='zoom-in';
+      img.addEventListener('click',()=>{ lbImg.src=img.src; lbImg.alt=img.alt; lb.showModal(); });
+    });
+    lb.addEventListener('click',(e)=>{ if(e.target===lb) lb.close(); });
+  </script>
+</body>
+</html>
