@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
   <title>FC26 IPL – הורדה לאנדרואיד (APK)</title>
-  <meta name="description" content="FC26 IPL – דראפט סימולייטור בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית (כרגע ללא חבילות). דף הורדה נקי, אמין ומותאם מובייל." />
+  <meta name="description" content="FC26 IPL – דראפט סימולייטור בהשראת EA FC 26 עם חבילות חדשות, SBC, סימולטור ועוד קלפים והפתעות. דף הורדה נקי, אמין ומותאם מובייל." />
   <link rel="icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet" />
@@ -88,7 +88,7 @@
         <h1>FC26 IPL</h1>
         <div style="font-size:13px;color:#7a86a8">מבית <b>NN Games</b></div>
         <div class="meta">
-          <span class="chip">דראפט סימולייטור (ללא חבילות בשלב זה)</span>
+          <span class="chip">חדש! חבילות, SBC, סימולטור ועוד הפתעות</span>
           <span class="chip">קלפים: ליגת העל הישראלית</span>
           <span class="chip">Android · APK</span>
           <span class="chip">50K+ הורדות משתמשים</span>
@@ -113,7 +113,7 @@
             <h3>תיאור</h3>
             <p class="p-muted">
               FC26 IPL הוא <b>דראפט סימולייטור</b> בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית –
-              כרגע <b>ללא חבילות</b>. בנו הרכב חכם לפי עמדות וכימיה והתחרו על ניקוד מקסימלי.
+              עכשיו עם <b>חבילות חדשות, SBC, סימולטור</b> ועוד המון קלפים והפתעות.
             </p>
             <div class="divider" style="height:1px;background:#eef2ff;margin:12px 0"></div>
             <div class="shots" aria-label="צילומי מסך">
@@ -126,7 +126,7 @@
           <div class="section">
             <h3>מידע מהיר</h3>
             <div class="facts">
-              <div class="fact">📦 גודל קובץ: <span id="apkSize">537 מ״ב</span></div>
+              <div class="fact">📦 גודל קובץ: <span id="apkSize">666 מ״ב</span></div>
               <div class="fact">🔒 חתימת SHA-256: <code id="sha256" style="font-family:ui-monospace">—</code></div>
               <div class="fact">🖥️ פלטפורמה מזוהה: <b id="env">—</b></div>
             </div>
@@ -180,8 +180,8 @@
   <dialog id="lightbox"><img id="lightbox-img" alt="תצוגה" style="max-width:95vw;max-height:85vh;border-radius:14px"></dialog>
 
   <script>
-    // ===== APK path (GitHub Releases) =====
-    const APK_FILE = 'https://github.com/noamnoam2/fc26-ipl-site/releases/download/v1/app-release.apk';
+    // ===== APK path (GitHub Releases, v2) =====
+    const APK_FILE = 'https://github.com/noamnoam2/fc26-ipl-site/releases/download/v2/FC26-IPL.apk';
 
     // Wire install buttons
     const installTop = document.getElementById('installTop');
@@ -210,14 +210,14 @@
     // Copy link uses the full external URL
     const copyBtn = document.getElementById('copyBtn');
     copyBtn?.addEventListener('click', async ()=>{
-      const url = APK_FILE; // לא בונים מ-origin
+      const url = APK_FILE;
       try{ await navigator.clipboard.writeText(url); copyBtn.textContent='הועתק ✔'; setTimeout(()=>copyBtn.textContent='העתק קישור',1200); }
       catch{ alert(url); }
     });
 
-    // Platform label + file size (no double download)
+    // Platform label + file size placeholders
     const envEl = document.getElementById('env'); if(envEl){ envEl.textContent = /android/i.test(navigator.userAgent)? 'Android' : /iphone|ipad|ipod/i.test(navigator.userAgent)? 'iOS' : 'Desktop'; }
-    const sizeEl = document.getElementById('apkSize'); if(sizeEl){ sizeEl.textContent = '537 מ״ב'; }
+    const sizeEl = document.getElementById('apkSize'); if(sizeEl){ sizeEl.textContent = '666 מ״ב'; }
     const shaEl = document.getElementById('sha256'); if(shaEl){ shaEl.textContent = '—'; }
 
     // Tabs logic (about + gallery)
