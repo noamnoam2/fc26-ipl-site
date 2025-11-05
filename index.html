@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
   <title>FC26 IPL – הורדה לאנדרואיד (APK)</title>
-  <meta name="description" content="FC26 IPL – דראפט סימולייטור בהשראת EA FC 26 עם חבילות חדשות, SBC, סימולטור ועוד קלפים והפתעות. דף הורדה נקי, אמין ומותאם מובייל." />
+  <meta name="description" content="FC26 IPL – דראפט סימולייטור בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית. חדש! חבילות, SBC, סימולטור ועוד המון הפתעות וקלפים חדשים. דף הורדה נקי, אמין ומותאם מובייל." />
   <link rel="icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@
     .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:#2b3b59}
     .chip{display:inline-flex;gap:6px;align-items:center;background:#f2f6ff;border:1px solid var(--ring);border-radius:999px;padding:8px 12px;font-size:14px}
 
-    /* Buttons – larger tap targets */
+    /* Buttons */
     .btn{appearance:none;border:0;border-radius:999px;padding:clamp(14px,4vw,16px) clamp(18px,5vw,22px);font-weight:800;cursor:pointer;transition:transform .12s, box-shadow .12s;display:inline-flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap}
     .btn-primary{background:linear-gradient(180deg,#3b82f6,var(--accent));color:#fff;box-shadow:0 12px 26px rgba(26,115,232,.30)}
     .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(26,115,232,.38)}
@@ -54,7 +54,7 @@
     .section h3{margin:0 0 8px;font-size:18px}
     .p-muted{color:var(--muted);margin:0;line-height:1.75}
 
-    /* Screenshots – great on mobile */
+    /* Screenshots */
     .shots{display:flex;gap:12px;overflow:auto;padding:8px 4px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
     .shot{flex:0 0 clamp(62vw, 240px, 300px);margin:0;scroll-snap-align:center}
     .shot img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--ring);box-shadow:0 8px 16px rgba(17,24,39,.08)}
@@ -88,7 +88,7 @@
         <h1>FC26 IPL</h1>
         <div style="font-size:13px;color:#7a86a8">מבית <b>NN Games</b></div>
         <div class="meta">
-          <span class="chip">חדש! חבילות, SBC, סימולטור ועוד הפתעות</span>
+          <span class="chip">חדש! חבילות · SBC · סימולטור</span>
           <span class="chip">קלפים: ליגת העל הישראלית</span>
           <span class="chip">Android · APK</span>
           <span class="chip">50K+ הורדות משתמשים</span>
@@ -112,8 +112,9 @@
           <div class="section">
             <h3>תיאור</h3>
             <p class="p-muted">
-              FC26 IPL הוא <b>דראפט סימולייטור</b> בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית –
-              עכשיו עם <b>חבילות חדשות, SBC, סימולטור</b> ועוד המון קלפים והפתעות.
+              FC26 IPL הוא <b>דראפט סימולייטור</b> בהשראת EA FC 26 עם קלפים של ליגת העל הישראלית. 
+              <b>חדש!</b> חבילות, SBC, סימולטור ועוד המון הפתעות וקלפים חדשים.
+              בנו הרכב חכם לפי עמדות וכימיה והתחרו על ניקוד מקסימלי.
             </p>
             <div class="divider" style="height:1px;background:#eef2ff;margin:12px 0"></div>
             <div class="shots" aria-label="צילומי מסך">
@@ -126,7 +127,7 @@
           <div class="section">
             <h3>מידע מהיר</h3>
             <div class="facts">
-              <div class="fact">📦 גודל קובץ: <span id="apkSize">666 מ״ב</span></div>
+              <div class="fact">📦 גודל קובץ: <span id="apkSize">706 מ״ב</span></div>
               <div class="fact">🔒 חתימת SHA-256: <code id="sha256" style="font-family:ui-monospace">—</code></div>
               <div class="fact">🖥️ פלטפורמה מזוהה: <b id="env">—</b></div>
             </div>
@@ -180,8 +181,8 @@
   <dialog id="lightbox"><img id="lightbox-img" alt="תצוגה" style="max-width:95vw;max-height:85vh;border-radius:14px"></dialog>
 
   <script>
-    // ===== APK path (GitHub Releases, v2) =====
-    const APK_FILE = 'https://github.com/noamnoam2/fc26-ipl-site/releases/download/v2/FC26-IPL.apk';
+    // ===== APK path (GitHub Releases) =====
+    const APK_FILE = 'https://github.com/noamnoam2/fc26-ipl-site/releases/download/v2/FC26-IPL.apk?v=3';
 
     // Wire install buttons
     const installTop = document.getElementById('installTop');
@@ -215,12 +216,12 @@
       catch{ alert(url); }
     });
 
-    // Platform label + file size placeholders
+    // Platform label + displayed file size
     const envEl = document.getElementById('env'); if(envEl){ envEl.textContent = /android/i.test(navigator.userAgent)? 'Android' : /iphone|ipad|ipod/i.test(navigator.userAgent)? 'iOS' : 'Desktop'; }
-    const sizeEl = document.getElementById('apkSize'); if(sizeEl){ sizeEl.textContent = '666 מ״ב'; }
+    const sizeEl = document.getElementById('apkSize'); if(sizeEl){ sizeEl.textContent = '706 מ״ב'; }
     const shaEl = document.getElementById('sha256'); if(shaEl){ shaEl.textContent = '—'; }
 
-    // Tabs logic (about + gallery)
+    // Tabs logic
     const tabButtons = document.querySelectorAll('.tab-btn');
     const panels = { about: document.getElementById('panel-about'), gallery: document.getElementById('panel-gallery') };
     tabButtons.forEach(btn=>btn.addEventListener('click',()=>{
